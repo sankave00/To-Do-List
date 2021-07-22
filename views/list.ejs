@@ -1,0 +1,46 @@
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <title>To-Do-List</title>
+        <link rel ="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class = "box" id ="heading">
+            <h1><%=List%></h1>
+        </div>
+        <div class ="box">
+            <% for(var i = 0;i<listitems.length;i++){ %>
+            <form action="/delete" method="post">
+                <div class = "item">
+                    <input type ="checkbox" name = "checkbox" value=<%=listitems[i]._id%> onChange="this.form.submit()">
+                    <p><%= listitems[i].name %></p>
+                </div>
+                <input type="hidden" name="listname" value=<%=List%>>
+            </form>
+            <% } %>
+            <form class = "item" action="/" method="post">
+                <input type = "text" name = "newitem" placeholder = "New Item" autocomplete="off">
+                <button class="add" type = "submit" name = "list" value = <%=List%> >+</button>
+            </form>
+        </div>
+    <footer>
+        <div>
+            <form action="/reset" method="post">
+                <button class = "reset" onClick="this.form.submit()">Reset Custom Lists</button>
+            </form>
+            
+        </div>
+        <div class = "below">
+            <h2>Custom Lists Created</h2>
+            <% for(var i = 0;i<customLists.length;i++){ %>
+                <li><%= customLists[i] %></li>
+            <% } %>
+        </div>
+        
+        
+       
+    </footer>    
+        
+        
+    </body>
+</html>
