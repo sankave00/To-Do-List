@@ -8,8 +8,6 @@ app.set('view engine','ejs');
 app.use(express.static("public"));
 
 
-//mongoose.connect("mongodb+srv://sanyog-admin:Sanyog123@cluster0.5ym9r.mongodb.net/todolistDB", {useNewUrlParser: true, useUnifiedTopology: true});
-
 mongoose.connect("mongodb://localhost:27017/todolistDB", {useNewUrlParser: true, useUnifiedTopology: true});
 
 const itemsSchema = {
